@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2024/05/19 19:12:16 by csakamot         ###   ########.fr        #
+#    Updated: 2024/05/19 19:56:54 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,18 @@ CFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 ##-----------archive-----------##
 ARFLAG	= rcs
+##-----------------------------##
+
+##-------escape sequence-------##
+RED			= \e[38;5;1m
+GREEN		= \e[38;5;2m
+ORANGE	= \e[38;5;3m
+BLUE		= \e[38;5;4m
+VIOLET	= \e[38;5;5m
+AQUA		= \e[38;5;6m
+WHITE		= \e[38;5;7m
+GREY		= \e[38;5;8m
+RESET		= \e[0m
 ##-----------------------------##
 
 ##--------Makefile rule--------##
