@@ -6,43 +6,43 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2024/05/19 18:37:40 by csakamot         ###   ########.fr        #
+#    Updated: 2024/05/19 19:12:16 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ##----Executable File Name-----##
-NAME				= Bureaucrat
+NAME		= Bureaucrat
 ##-----------------------------##
 
 ##-----Directory Location------##
-SRCDIR			= ./src/
+SRCDIR	= ./src/
 
-INCDIR			= ./include/
+INCDIR	= ./include/
 
-OBJDIR			= objs/
+OBJDIR	= objs/
 ##-----------------------------##
 
 ##------------Srcs-------------##
-MAINSRC			=	main.cpp Bureaucrat.cpp
+MAINSRC	=	main.cpp Bureaucrat.cpp
 
-SRCS			= $(addprefix $(SRCDIR), ${MAINSRC})
+SRCS		= $(addprefix $(SRCDIR), ${MAINSRC})
 ##-----------------------------##
 
 ##-----------Object------------##
-OBJS			= ${subst ${SRCDIR}, $(OBJDIR), ${SRCS:.cpp=.o}}
+OBJS		= ${subst ${SRCDIR}, $(OBJDIR), ${SRCS:.cpp=.o}}
 ##-----------------------------##
 
 ##----------conpiler-----------##
-CC				= g++
-CFLAGS			= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CC			= g++
+CFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 ##-----------------------------##
 
 ##-----------archive-----------##
-ARFLAG			= rcs
+ARFLAG	= rcs
 ##-----------------------------##
 
 ##--------Makefile rule--------##
-all:			${NAME}
+all:${NAME}
 
 ${NAME}:${OBJS}
 				@echo "object file				compiled"
@@ -56,13 +56,13 @@ clean:
 				@${RM} -rf ${OBJDIR}
 				@echo "object file				removed"
 
-fclean:			clean
+fclean:clean
 				@${RM} -rf ${NAME}
 
-re:				fclean all
+re:fclean all
 
-exe:			re
+exe:re
 				@make -s clean
 
-.PHONY:			all clean fclean re exe
+.PHONY:all clean fclean re exe
 ##-----------------------------##
