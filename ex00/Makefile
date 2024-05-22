@@ -6,7 +6,7 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2024/05/19 19:56:54 by csakamot         ###   ########.fr        #
+#    Updated: 2024/05/22 17:21:51 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,20 +53,30 @@ GREY		= \e[38;5;8m
 RESET		= \e[0m
 ##-----------------------------##
 
+COUNT		= 0
+
 ##--------Makefile rule--------##
-all:${NAME}
+all:prev ${NAME}
+
+prev:
+				@printf "prev progress\n"
 
 ${NAME}:${OBJS}
-				@echo "object file				compiled"
+				@printf "\nobject file				compiled"
 				@$(CC) $(CFLAGS) -o $@ $^
 
 $(OBJDIR)%.o:$(SRCDIR)%.cpp
+				@printf "\r\e[0m"
+				@$(eval COUNT = $(shell echo $$(($(COUNT) + 1))))
+				@printf "["
+				@for i in {1..10}; do if [ $$i -le $(COUNT) ]; then printf "$(AQUA)=\e$(RESET)"; else printf " "; fi; done
+				@printf "]"
 				@mkdir -p $(OBJDIR)
 				@$(CC) $(CFLAGS) -I $(INCDIR) -c $< -o $@
 
 clean:
 				@${RM} -rf ${OBJDIR}
-				@echo "object file				removed"
+				@printf "object file				removed\n"
 
 fclean:clean
 				@${RM} -rf ${NAME}
