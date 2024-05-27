@@ -6,12 +6,12 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2024/05/26 20:11:53 by csakamot         ###   ########.fr        #
+#    Updated: 2024/05/26 20:12:02 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ##----Executable File Name-----##
-NAME		= bureaucrat
+NAME		= form
 ##-----------------------------##
 
 ##-----Directory Location------##
@@ -23,7 +23,7 @@ OBJDIR	= objs/
 ##-----------------------------##
 
 ##------------Srcs-------------##
-MAINSRC	=	main.cpp Bureaucrat.cpp
+MAINSRC	=	main.cpp Bureaucrat.cpp Form.cpp
 
 SRCS		= $(addprefix $(SRCDIR), ${MAINSRC})
 ##-----------------------------##
