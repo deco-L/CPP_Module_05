@@ -6,11 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/05/19 18:41:03 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/06/05 22:07:49 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "../include/Bureaucrat.hpp"
 #include <unistd.h>
 #include <sys/ioctl.h>
 
@@ -25,12 +25,92 @@ static void draw_terminal_line() {
 
 	terminal_col = get_term_line();
 	for (size_t i = 0; i < terminal_col; i++)
-		std::cout << "\e[38;5;"<< i + 20 << "m=\e[0m";
+		std::cout << "=";
 	std::cout << std::endl;
 	return ;
 }
 
 int main(void) {
+  draw_terminal_line();
+  try
+  {
+    Bureaucrat  human;
+    std::cout << human;
+  }
+  catch(const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+  draw_terminal_line();
+  try
+  {
+    Bureaucrat  human("satou");
+    std::cout << human;
+  }
+  catch(const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+  draw_terminal_line();
+  try
+  {
+    Bureaucrat  human("yamada", 75);
+    std::cout << human;
+    human.upGrade();
+    std::cout << human;
+    human.downGrade();
+    std::cout << human;
+  }
+  catch(const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+  draw_terminal_line();
+  try
+  {
+    Bureaucrat  human("yamada", -10);
+    std::cout << human;
+  }
+  catch(const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+  draw_terminal_line();
+  try
+  {
+    Bureaucrat human("yamada", 151);
+    std::cout << human;
+  }
+  catch(const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+  
+  draw_terminal_line();
+  try
+  {
+    Bureaucrat  human("yamada", 1);
+    std::cout << human;
+    human.upGrade();
+    std::cout << human;
+  }
+  catch(const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+  draw_terminal_line();
+  try
+  {
+    Bureaucrat  human("yamada", 150);
+    std::cout << human;
+    human.downGrade();
+    std::cout << human;
+  }
+  catch(const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+  
   draw_terminal_line();
   return (EXIT_SUCCESS);
 }
