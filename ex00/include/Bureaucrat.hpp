@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/06/05 21:51:18 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/06/07 14:09:30 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ private:
 
 public:
   Bureaucrat( void );
-  Bureaucrat( const std::string& name );
   Bureaucrat( const std::string& name, int grade );
   Bureaucrat( const Bureaucrat& obj );
   ~Bureaucrat();

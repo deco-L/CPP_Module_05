@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/06/06 16:46:35 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/06/07 14:25:24 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ public:
   const bool&         isSigned( void ) const;
   const int&          getRequired( void ) const;
   const int&          getConsume( void ) const;
-  void  beSigned( const Bureaucrat& obj );
+  void                beSigned( const Bureaucrat& obj );
 
-  Form& operator=( const Form& obj );
+  Form&               operator=( const Form& obj );
 };
 
-std::ostream& operator<<( std::ostream& out, const Form& obj );
+std::ostream&         operator<<( std::ostream& out, const Form& obj );
 
 #endif
