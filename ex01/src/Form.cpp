@@ -6,8 +6,11 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/05/26 19:51:33 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/06/06 18:11:32 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "From.hpp"
+#include "../include/Form.hpp"
+
+Form::Form(void):_name("nameless"), _sign(), _requiredGrade()
+{}

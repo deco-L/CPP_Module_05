@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/06/05 22:07:49 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/06/06 14:50:29 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,6 @@ int main(void) {
   try
   {
     Bureaucrat  human;
-    std::cout << human;
-  }
-  catch(const std::exception& e)
-  {
-    std::cerr << e.what() << '\n';
-  }
-  draw_terminal_line();
-  try
-  {
-    Bureaucrat  human("satou");
     std::cout << human;
   }
   catch(const std::exception& e)
