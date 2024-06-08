@@ -6,14 +6,17 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/06/07 14:25:24 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/06/08 20:44:52 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include "Bureaucrat.hpp"
+#include <cstdlib>
+#include <iostream>
+
+class Bureaucrat;
 
 class Form
 {
@@ -29,15 +32,16 @@ private:
 public:
   Form( void );
   Form( const std::string& name, const int& required, const int& consume );
+  Form( const Form& obj );
   ~Form();
 
-  class GradeTooHighException
+  class GradeTooHighException : public std::exception
   {
   public:
     virtual const char* what( void ) const throw();
   };
 
-  class GradeTooLowException
+  class GradeTooLowException : public std::exception
   {
   public:
     virtual const char* what( void ) const throw();

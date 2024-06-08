@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/06/06 15:10:12 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/06/08 19:18:15 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <cstdlib>
 #include <iostream>
+
+class Form;
 
 class Bureaucrat
 {
@@ -47,7 +49,7 @@ public:
   int                 getGrade( void ) const;
   void                upGrade( void );
   void                downGrade( void );
-  void                signForm( const Bureaucrat& obj );
+  void                signForm( Form& obj );
 
   Bureaucrat& operator=( const Bureaucrat& obj );
 };

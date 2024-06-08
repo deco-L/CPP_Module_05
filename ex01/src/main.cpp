@@ -6,11 +6,12 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/06/06 14:50:29 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/06/08 20:49:06 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Bureaucrat.hpp"
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <unistd.h>
 #include <sys/ioctl.h>
 
@@ -34,8 +35,31 @@ int main(void) {
   draw_terminal_line();
   try
   {
-    Bureaucrat  human;
+    Bureaucrat  human("yamada", 10);
+    Form        licence("rooftopAccess", 50, 10);
+
     std::cout << human;
+    std::cout << licence;
+    human.signForm(licence);
+    std::cout << human;
+    std::cout << licence;
+  }
+  catch(const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+  draw_terminal_line();
+  draw_terminal_line();
+  try
+  {
+    Bureaucrat  human("yamada", 140);
+    Form        licence("rooftopAccess", 50, 10);
+
+    std::cout << human;
+    std::cout << licence;
+    human.signForm(licence);
+    std::cout << human;
+    std::cout << licence;
   }
   catch(const std::exception& e)
   {
@@ -44,12 +68,9 @@ int main(void) {
   draw_terminal_line();
   try
   {
-    Bureaucrat  human("yamada", 75);
-    std::cout << human;
-    human.upGrade();
-    std::cout << human;
-    human.downGrade();
-    std::cout << human;
+    Form  licence("error", -1, 30);
+
+    std::cout << licence;
   }
   catch(const std::exception& e)
   {
@@ -58,8 +79,9 @@ int main(void) {
   draw_terminal_line();
   try
   {
-    Bureaucrat  human("yamada", -10);
-    std::cout << human;
+    Form  licence("error", 10, 0);
+
+    std::cout << licence;
   }
   catch(const std::exception& e)
   {
@@ -68,21 +90,9 @@ int main(void) {
   draw_terminal_line();
   try
   {
-    Bureaucrat human("yamada", 151);
-    std::cout << human;
-  }
-  catch(const std::exception& e)
-  {
-    std::cerr << e.what() << '\n';
-  }
-  
-  draw_terminal_line();
-  try
-  {
-    Bureaucrat  human("yamada", 1);
-    std::cout << human;
-    human.upGrade();
-    std::cout << human;
+    Form  licence("error", 151, 30);
+
+    std::cout << licence;
   }
   catch(const std::exception& e)
   {
@@ -91,16 +101,14 @@ int main(void) {
   draw_terminal_line();
   try
   {
-    Bureaucrat  human("yamada", 150);
-    std::cout << human;
-    human.downGrade();
-    std::cout << human;
+    Form  licence("error", 10, 151);
+
+    std::cout << licence;
   }
   catch(const std::exception& e)
   {
     std::cerr << e.what() << '\n';
   }
-  
   draw_terminal_line();
   return (EXIT_SUCCESS);
 }

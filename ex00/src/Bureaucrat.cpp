@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/06/07 14:09:37 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/06/08 19:25:40 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ Bureaucrat::~Bureaucrat(void)
 }
 
 const char* Bureaucrat::GradeTooHighException::what(void) const throw() {
-  return ("\e[1;38;5;160mError: Grade too high.\e[0m");
+  return ("\e[1;38;5;182mError: Grade too high.\e[0m");
 }
 
 const char* Bureaucrat::GradeTooLowException::what(void) const throw()
 {
-  return ("\e[1;38;5;160mError: Grade too low.\e[0m");
+  return ("\e[1;38;5;182mError: Grade too low.\e[0m");
 }
 
 const std::string&  Bureaucrat::getName(void) const
