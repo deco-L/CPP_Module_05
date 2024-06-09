@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/06/08 20:43:22 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/06/09 13:17:57 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@ const int Form::_middleGrade = 75;
 const int Form::_lowGrade = 150;
 
 Form::Form(void)
-:_name("nameless"), _sign(), _requiredGrade(Form::_middleGrade), _consumeGrade(Form::_middleGrade)
+:_name("nameless"), _sign(), _requiredGrade(Form::_middleGrade), _execGrade(Form::_middleGrade)
 {}
 
-Form::Form(const std::string& name, const int& required, const int& consume)
-:_name(name), _sign(), _requiredGrade(required), _consumeGrade(consume)
+Form::Form(const std::string& name, const int& required, const int& exec)
+:_name(name), _sign(), _requiredGrade(required), _execGrade(exec)
 {
-  if (this->_requiredGrade < this->_highGrade || this->_consumeGrade < this->_highGrade)
+  if (this->_requiredGrade < this->_highGrade || this->_execGrade < this->_highGrade)
     throw Form::GradeTooHighException();
-  else if (this->_requiredGrade > this->_lowGrade || this->_consumeGrade > this->_lowGrade)
+  else if (this->_requiredGrade > this->_lowGrade || this->_execGrade > this->_lowGrade)
     throw Form::GradeTooLowException();
 }
 
 Form::Form(const Form& obj)
-:_name (obj.getName()), _sign(), _requiredGrade(obj.getRequired()), _consumeGrade(obj.getConsume())
+:_name (obj.getName()), _sign(), _requiredGrade(obj.getRequired()), _execGrade(obj.getExec())
 {
   *this = obj;
 }
@@ -66,9 +66,9 @@ const int&  Form::getRequired(void) const
   return (this->_requiredGrade);
 }
 
-const int&  Form::getConsume(void) const
+const int&  Form::getExec(void) const
 {
-  return (this->_consumeGrade);
+  return (this->_execGrade);
 }
 
 void  Form::beSigned(const Bureaucrat& obj)
@@ -105,6 +105,6 @@ std::ostream& operator<<(std::ostream& out, const Form& obj)
   else
     std::cout << " signed: ✗ ";
   std::cout << "requiredGrade: " << obj.getRequired() << " "
-            << "consumeGrade: " << obj.getConsume() << std::endl;
+            << "execGrade: " << obj.getExec() << std::endl;
   return (out);
 }
