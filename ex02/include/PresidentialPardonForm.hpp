@@ -6,15 +6,36 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/05/26 20:05:51 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/06/09 12:21:52 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRESIDENTIALPARDONFORM_HPP
 #define PRESIDENTIALPARDONFORM_HPP
 
-class PresidentialPardonForm
+#include <iostream>
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
+
+class PresidentialPardonForm: public Form
 {
+private:
+  const std::string _target;
+  static const int  _sign;
+  static const int  _exec;
+
+public:
+  PresidentialPardonForm( void );
+  PresidentialPardonForm( const std::string& target );
+  PresidentialPardonForm( const PresidentialPardonForm& obj );
+  ~PresidentialPardonForm();
+
+  const std::string&  getTarget( void ) const;
+  void                execute( Bureaucrat const & executor ) const;
+
+  PresidentialPardonForm& operator=( const PresidentialPardonForm& obj );
 };
+
+std::ostream& operator<<( std::ostream& out, const PresidentialPardonForm& obj );
 
 #endif
