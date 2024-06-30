@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/06/09 20:05:06 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/06/30 20:05:04 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "../include/PresidentialPardonForm.hpp"
 #include "../include/RobotomyRequestForm.hpp"
 #include "../include/ShrubberyCreationForm.hpp"
+#include "../include/Intern.hpp"
 #include <unistd.h>
 #include <sys/ioctl.h>
 
@@ -36,65 +37,13 @@ static void draw_terminal_line() {
 
 int main(void) {
   draw_terminal_line();
-  try
-  {
-    Bureaucrat  human("yamada", 1);
-    ShrubberyCreationForm bery("Gold");
-    RobotomyRequestForm victim("42tokyo_student");
-    PresidentialPardonForm  tmp("people");
+  Intern  slave;
+  Form    *tmp;
 
-    human.signForm(bery);
-    human.signForm(victim);
-    human.signForm(tmp);
-    human.executeForm(bery);
-    human.executeForm(victim);
-    human.executeForm(tmp);
-    human.executeForm(bery);
-  }
-  catch(const std::exception& e)
-  {
-    std::cerr << e.what() << '\n';
-  }
-  draw_terminal_line();
-  try
-  {
-    Bureaucrat  human("yamada", 150);
-    ShrubberyCreationForm bery("Silver");
-    RobotomyRequestForm victim("42tokyo_student");
-    PresidentialPardonForm  tmp("people");
-
-    human.signForm(bery);
-    human.signForm(victim);
-    human.signForm(tmp);
-    human.executeForm(bery);
-    human.executeForm(victim);
-    human.executeForm(tmp);
-    human.executeForm(bery);
-  }
-  catch(const std::exception& e)
-  {
-    std::cerr << e.what() << '\n';
-  }
-  draw_terminal_line();
-  try
-  {
-    Bureaucrat  human("yamada", 50);
-    ShrubberyCreationForm bery("Bronze");
-    RobotomyRequestForm victim("42tokyo_student");
-    PresidentialPardonForm  tmp("people");
-
-    human.signForm(bery);
-    human.signForm(victim);
-    human.signForm(tmp);
-    human.executeForm(bery);
-    human.executeForm(victim);
-    human.executeForm(tmp);
-    human.executeForm(bery);
-  }
-  catch(const std::exception& e)
-  {
-    std::cerr << e.what() << '\n';
-  }
+  tmp = slave.makeForm("presidential pardon", "yamada");
+  if (tmp)
+    std::cout << tmp->getName() << ": " << tmp->getTarget() << std::endl;
+  delete tmp;
   draw_terminal_line();
   return (EXIT_SUCCESS);
 }

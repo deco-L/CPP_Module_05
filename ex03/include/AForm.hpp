@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/06/09 20:04:23 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/06/30 19:31:07 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ public:
   Form( void );
   Form( const std::string& name, const int& required, const int& exec );
   Form( const Form& obj );
-  virtual ~Form() = 0;
+  virtual ~Form();
 
   class GradeTooHighException : public std::exception
   {
@@ -58,6 +58,7 @@ public:
   const int&          getRequired( void ) const;
   const int&          getExec( void ) const;
   void                beSigned( const Bureaucrat& obj );
+  virtual const std::string&  getTarget( void ) const = 0;
   virtual void        execute( Bureaucrat const & executor ) const = 0;
 
   Form&               operator=( const Form& obj );

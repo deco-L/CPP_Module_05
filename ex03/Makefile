@@ -6,12 +6,12 @@
 #    By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#              #
-#    Updated: 2024/05/27 08:45:21 by csakamot         ###   ########.fr        #
+#    Updated: 2024/06/30 17:54:40 by csakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ##----Executable File Name-----##
-NAME		= form
+NAME		= intern
 ##-----------------------------##
 
 ##-----Directory Location------##
@@ -24,7 +24,7 @@ OBJDIR	= objs/
 
 ##------------Srcs-------------##
 MAINSRC	=	main.cpp AForm.cpp Bureaucrat.cpp PresidentialPardonForm.cpp \
-					RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+					RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 
 SRCS		= $(addprefix $(SRCDIR), ${MAINSRC})
 ##-----------------------------##
