@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/06/08 20:49:06 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/07/14 14:27:37 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,17 @@ int main(void) {
   {
     std::cerr << e.what() << '\n';
   }
+  draw_terminal_line();
+  try
+  {
+    Form licence = Form();
+    std::cout << licence;
+  }
+  catch(const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+  
   draw_terminal_line();
   return (EXIT_SUCCESS);
 }

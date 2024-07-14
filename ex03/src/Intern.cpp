@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/06/30 20:03:35 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/07/14 14:53:02 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "ShrubberyCreationForm.hpp"
 
 const std::string Intern::_formList[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
+
 Form* (*Intern::_makeForm[3])(const std::string& target) = {
   &Intern::makePresidentialPardonForm,
   &Intern::makeRobotomyRequestForm,

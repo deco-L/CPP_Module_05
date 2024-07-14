@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/06/30 20:05:04 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/07/14 15:11:36 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,52 @@ static void draw_terminal_line() {
 
 int main(void) {
   draw_terminal_line();
-  Intern  slave;
-  Form    *tmp;
+  {
+    Bureaucrat  human("42student", 1);
+    Intern      slave;
+    Form        *tmp;
 
-  tmp = slave.makeForm("presidential pardon", "yamada");
-  if (tmp)
-    std::cout << tmp->getName() << ": " << tmp->getTarget() << std::endl;
-  delete tmp;
+    tmp = slave.makeForm("presidential pardon", "yamada");
+    if (tmp)
+      std::cout << tmp->getName() << ": " << tmp->getTarget() << std::endl;
+    human.signForm(*tmp);
+    human.executeForm(*tmp);
+    delete tmp;
+  }
+  draw_terminal_line();
+  {
+    Bureaucrat  human("42student", 1);
+    Intern      slave;
+    Form        *tmp;
+
+    tmp = slave.makeForm("robotomy request", "yamada");
+    if (tmp)
+      std::cout << tmp->getName() << ": " << tmp->getTarget() << std::endl;
+    human.signForm(*tmp);
+    human.executeForm(*tmp);
+    delete tmp;
+  }
+  draw_terminal_line();
+  {
+    Bureaucrat  human("42student", 1);
+    Intern      slave;
+    Form        *tmp;
+
+    tmp = slave.makeForm("shrubbery creation", "yamada");
+    if (tmp)
+      std::cout << tmp->getName() << ": " << tmp->getTarget() << std::endl;
+    human.signForm(*tmp);
+    human.executeForm(*tmp);
+    delete tmp;
+  }
+  draw_terminal_line();
+  {
+    Intern  slave;
+    Form    *tmp;
+
+    tmp = slave.makeForm("nothing", "yamada");
+    delete tmp;
+  }
   draw_terminal_line();
   return (EXIT_SUCCESS);
 }

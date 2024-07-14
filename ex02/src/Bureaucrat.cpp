@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/06/09 19:43:48 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/07/14 15:13:01 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ void  Bureaucrat::signForm(Form& obj)
   }
   catch(const std::exception& e)
   {
-    std::cerr << "\e[38;5;82mBureaucrat \e[0m" << obj.getName()
-              << " couldn't sign \e[38;5;82mForm \e[0m" << this->getName()
+    std::cerr << "\e[38;5;82mBureaucrat \e[0m" << this->getName()
+              << " couldn't sign \e[38;5;82mForm \e[0m" << obj.getName()
               << " because " << e.what() << '\n';
   }
   return ;

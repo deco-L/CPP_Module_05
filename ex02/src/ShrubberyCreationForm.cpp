@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/06/09 19:48:23 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/07/14 14:47:05 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,7 @@ const std::string& ShrubberyCreationForm::getTarget(void) const
   return (this->_target);
 }
 
-static bool  isFilePath(const char *path) {
-  struct stat status;
-
-  if (stat(path, &status) != 0 )
-  {
-    std::cerr << "\e[1;31mError: Could not open the file.\e[0m" << std::endl;
-    return (true);
-  }
-  if (S_ISDIR(status.st_mode))
-  {
-    std::cerr << "\e[1;31mError: path is a directory.\e[0m" << std::endl;
-    return (true);
-  }
-  return (false);
-}
-
-bool fileExists(const std::string& filename) {
+static bool fileExists(const std::string& filename) {
     std::FILE* file = std::fopen(filename.c_str(), "r");
     if (file) {
         std::fclose(file);
@@ -74,11 +58,6 @@ void  ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     bery.open((this->_target + "_shrubbery").c_str(), std::ios::app);
   else
     bery.open((this->_target + "_shrubbery").c_str());
-  if (isFilePath((this->_target + "_shrubbery").c_str()))
-  {
-    bery.close();
-    return ;
-  }
   std::cout << "\e[38;5;82m" << executor.getName() << "\e[0m"
             << " executed " << this->getName() << std::endl;
   bery  << "                            ░░▒▒    ▒▒▒▒    ▓▓░░                                         " << std::endl

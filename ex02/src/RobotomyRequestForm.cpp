@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/06/09 19:54:09 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/07/14 14:40:28 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void  RobotomyRequestForm::execute(Bureaucrat const & executor) const
       std::cout << "\e[1;31m" << this->getTarget()
                 << " has been successfully lobotomised.\e[0m" << std::endl;
     else
-      std::cout << "\e[1;31m" << this->getTarget()
+      std::cout << "\e[1;96m" << this->getTarget()
                 << " failed to lobotomise.\e[0m" << std::endl;
   }
   catch(const std::exception& e)

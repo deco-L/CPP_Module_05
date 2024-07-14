@@ -6,7 +6,7 @@
 /*   By: csakamot <csakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:21:20 by csakamot          #+#    #+#             */
-/*   Updated: 2024/06/09 19:56:36 by csakamot         ###   ########.fr       */
+/*   Updated: 2024/07/14 15:02:16 by csakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int main(void) {
   try
   {
     Bureaucrat  human("yamada", 50);
-    ShrubberyCreationForm bery("Bronze");
+    ShrubberyCreationForm bery("bronze");
     RobotomyRequestForm victim("42tokyo_student");
     PresidentialPardonForm  tmp("people");
 
